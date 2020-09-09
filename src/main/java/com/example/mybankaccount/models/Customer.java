@@ -60,7 +60,7 @@ public class Customer implements Serializable {
     }
 
     public void setLastName(String lastName) {
-        this.firstName = lastName;
+        this.lastName = lastName;
     }
 
     public String getEmail() {
