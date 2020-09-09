@@ -1,0 +1,12 @@
+package com.example.mybankaccount.comparator;
+
+import com.example.mybankaccount.models.BankTransaction;
+
+import java.util.Comparator;
+
+public class BankTransactionSortingComparator implements Comparator<BankTransaction> {
+
+    public int compare(BankTransaction t1, BankTransaction t2) {
+        return t2.getTimestamp().compareTo(t1.getTimestamp());
+    }
+}
