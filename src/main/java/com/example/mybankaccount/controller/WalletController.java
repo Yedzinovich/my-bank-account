@@ -2,7 +2,7 @@ package com.example.mybankaccount.controller;
 
 import com.example.mybankaccount.exception.*;
 import com.example.mybankaccount.models.Account;
-import com.example.mybankaccount.models.BankTransaction;
+import com.example.mybankaccount.models.Transaction;
 import com.example.mybankaccount.models.ServiceResponse;
 import com.example.mybankaccount.models.Wallet;
 import com.example.mybankaccount.service.WalletService;
@@ -169,8 +169,8 @@ public class WalletController {
         ServiceResponse response = new ServiceResponse();
 
         try {
-            List<BankTransaction> lb = walletService.getStatement(walletId, accountId, n);
-            response.setStatus("200");
+            List<Transaction> lb = walletService.getStatement(walletId, accountId, n);
+            response.setStatus(HttpStatus.OK.toString());
             response.setDescription("Statement fetched successfully!!");
             response.setData(lb);
             return new ResponseEntity<>(response, HttpStatus.OK);

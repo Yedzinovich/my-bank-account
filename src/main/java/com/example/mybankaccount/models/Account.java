@@ -23,7 +23,7 @@ public class Account implements Serializable {
     private Wallet walletHolder;
 
     @OneToMany(mappedBy = "transactionFromAccount")
-    private List<BankTransaction> bankTransactions;
+    private List<Transaction> transactions;
 
     private static final long serialVersionUID = 1L;
 
@@ -55,12 +55,12 @@ public class Account implements Serializable {
         this.accountHolder = accountHolder;
     }
 
-    public List<BankTransaction> getBankTransactions() {
-        return bankTransactions;
+    public List<Transaction> getTransactions() {
+        return transactions;
     }
 
-    public void setBankTransactions(List<BankTransaction> bankTransactions) {
-        this.bankTransactions = bankTransactions;
+    public void setBankTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
     }
 
     public Wallet getWalletHolder() {

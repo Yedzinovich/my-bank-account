@@ -1,14 +1,14 @@
 package com.example.mybankaccount.service.implementation;
 
-import com.example.mybankaccount.comparator.BankTransactionSortingComparator;
+import com.example.mybankaccount.comparator.TransactionSortingComparator;
 import com.example.mybankaccount.constant.Constants;
 import com.example.mybankaccount.exception.*;
 import com.example.mybankaccount.models.Account;
-import com.example.mybankaccount.models.BankTransaction;
+import com.example.mybankaccount.models.Transaction;
 import com.example.mybankaccount.models.Customer;
 import com.example.mybankaccount.models.Wallet;
 import com.example.mybankaccount.repo.AccountRepository;
-import com.example.mybankaccount.repo.BankTansactionRepository;
+import com.example.mybankaccount.repo.TansactionRepository;
 import com.example.mybankaccount.repo.CustomerRepository;
 import com.example.mybankaccount.repo.WalletRepository;
 import com.example.mybankaccount.service.WalletService;
@@ -33,7 +33,7 @@ public class WalletServiceImpl implements WalletService {
     @Autowired
     CustomerRepository customerRepository;
     @Autowired
-    BankTansactionRepository bankTansactionRepository;
+    TansactionRepository tansactionRepository;
 
     @Override
     public Wallet createWallet(Integer customerId) throws CustomerDoesNotExistException, CustomerAlreadyHasWalletException {
@@ -111,9 +111,9 @@ public class WalletServiceImpl implements WalletService {
      * @param associatedAccount : Account associated with the transaction
      */
     private void makeEntryInTransaction(String typeOfTransaction, float amount, float postBalance, String description, Account associatedAccount) {
-        BankTransaction bankTransaction = new BankTransaction(typeOfTransaction, new Date(), amount, postBalance, description, associatedAccount);
+        Transaction transaction = new Transaction(typeOfTransaction, new Date(), amount, postBalance, description, associatedAccount);
 
-        bankTansactionRepository.save(bankTransaction);
+        tansactionRepository.save(transaction);
     }
 
     @Override
@@ -191,7 +191,7 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    public List<BankTransaction> getStatement(Integer walletId, Integer accountId, Integer n) throws WalletIdDoesNotExistException,
+    public List<Transaction> getStatement(Integer walletId, Integer accountId, Integer n) throws WalletIdDoesNotExistException,
             AccountNotAssociatedWithWalletException{
 
         Wallet wallet = walletRepository.findById(walletId).orElse(null);
@@ -205,9 +205,9 @@ public class WalletServiceImpl implements WalletService {
         }
 
 
-        List<BankTransaction> bankTransactions = associateAccount.get(0).getBankTransactions();
+        List<Transaction> bankTransactions = associateAccount.get(0).getTransactions();
 
-        bankTransactions.sort(new BankTransactionSortingComparator());
+        bankTransactions.sort(new TransactionSortingComparator());
 
         n = bankTransactions.size() >= n ? n : bankTransactions.size();
         return bankTransactions.subList(0, n);

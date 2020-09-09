@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class BankTransaction implements Serializable {
+public class Transaction implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,11 +22,11 @@ public class BankTransaction implements Serializable {
     @JsonIgnore
     private Account transactionFromAccount;
 
-    public BankTransaction() {
+    public Transaction() {
         super();
     }
 
-    public BankTransaction(String type, Date timestamp, float amount, float postBalance, String description, Account transactionFromAccount) {
+    public Transaction(String type, Date timestamp, float amount, float postBalance, String description, Account transactionFromAccount) {
         this.type = type;
         this.timestamp = timestamp;
         this.amount = amount;

@@ -2,7 +2,7 @@ package com.example.mybankaccount.service;
 
 import com.example.mybankaccount.exception.*;
 import com.example.mybankaccount.models.Account;
-import com.example.mybankaccount.models.BankTransaction;
+import com.example.mybankaccount.models.Transaction;
 import com.example.mybankaccount.models.Wallet;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public interface WalletService {
     public void transferToAccount(Integer fromWalletId, Integer fromAccountId, Integer toWalletId, Integer toAccountId, Float amount) throws WalletIdDoesNotExistException,
             AccountNotAssociatedWithWalletException, InsufficientBalanceInWalletException;
 
-    public List<BankTransaction> getStatement(Integer walletId, Integer accountId, Integer n) throws WalletIdDoesNotExistException,
+    public List<Transaction> getStatement(Integer walletId, Integer accountId, Integer n) throws WalletIdDoesNotExistException,
             AccountNotAssociatedWithWalletException;
 
 }
