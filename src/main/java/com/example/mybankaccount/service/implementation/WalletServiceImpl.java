@@ -22,18 +22,32 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 @Service("walletService")
 public class WalletServiceImpl implements WalletService {
 
     @Autowired
     WalletRepository walletRepository;
+
     @Autowired
     AccountRepository accountRepository;
+
     @Autowired
     CustomerRepository customerRepository;
+
     @Autowired
     TansactionRepository tansactionRepository;
+
+    public  WalletServiceImpl(){}
+
+    public WalletServiceImpl(WalletRepository walletRepository,
+                             AccountRepository accountRepository,
+                             CustomerRepository customerRepository,
+                             TansactionRepository tansactionRepository){
+        this.walletRepository = walletRepository;
+        this.accountRepository = accountRepository;
+        this.customerRepository = customerRepository;
+        this.tansactionRepository = tansactionRepository;
+    }
 
     @Override
     public Wallet createWallet(Integer customerId) throws CustomerDoesNotExistException, CustomerAlreadyHasWalletException {
