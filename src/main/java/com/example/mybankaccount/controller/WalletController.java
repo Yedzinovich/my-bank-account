@@ -19,7 +19,7 @@ public class WalletController {
     @Autowired
     WalletService walletService;
 
-    // Create a new wallet for a user. Constraint : A user can have only one wallet
+    // Create a new wallet for a customer.
     @PostMapping("/api/v1/wallet/{customerId}")
     public ResponseEntity<ServiceResponse> createWallet(@PathVariable("customerId") int customerId) throws CustomerAlreadyHasWalletException {
 
