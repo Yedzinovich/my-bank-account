@@ -16,21 +16,21 @@ JPA(Java Persistence API) is used to interact with the in memory database.
 </ul>
 
 ### UML Diagram
-[![Slack bot example](https://user-images.githubusercontent.com/25894229/87185120-34459300-c2b7-11ea-910a-c4fc716ebdde.png)]()
+![UML](https://user-images.githubusercontent.com/25894229/92818795-1a4b2e00-f396-11ea-9180-7eb888cf1a27.png)
 
 ### Endpoints
 
 <dl>
-  <dd>- POST ("/api/v1/account") - Create an account</dd><br>
-  <dd>- POST ("/api/v1/customer") - Create a new customer</dd><br>
-  <dd>- GET ("/api/v1/customer") - Find all customers</dd><br>
-  <dd>- GET ("/api/v1/customer/{userId}") - Find customer by its Id</dd><br>
-  <dd>- POST ("/api/v1/wallet/{customerId}") - Create a new wallet</dd><br>
-  <dd>- POST ("/api/v1/wallet/{walletId}/account/{accountId}/withdraw/{amount}") - Withdraw from the account</dd><br>
-  <dd>- POST ("/api/v1/wallet/{walletId}/account/{accountId}/deposit/{amount}") - Deposit to the account</dd><br>
-  <dd>- POST ("/api/v1/wallet/{fromWalletId}/account/{fromAccountId}/transfer/wallet/{toWalletId}/account/{toAccountId}/amount/{amount}") - Transfer money from one account to another</dd><br>
-  <dd>- GET ("/api/v1/wallet/{walletId}/account/{accountId}/balance") - Get an account balance</dd><br>
-  <dd>- GET ("/api/v1/wallet/{walletId}/account/{accountId}/lastNTransactions/{n}") - Get last n transactions from the account</dd><br>
+  <dt>- POST ("/api/v1/account") - Create an account</dt>
+  <dt>- POST ("/api/v1/customer") - Create a new customer</dt>
+  <dt>- GET ("/api/v1/customer") - Find all customers</dt>
+  <dt>- GET ("/api/v1/customer/{userId}") - Find customer by its Id</dt>
+  <dt>- POST ("/api/v1/wallet/{customerId}") - Create a new wallet</dt>
+  <dt>- POST ("/api/v1/wallet/{walletId}/account/{accountId}/withdraw/{amount}") - Withdraw from the account</dt>
+  <dt>- POST ("/api/v1/wallet/{walletId}/account/{accountId}/deposit/{amount}") - Deposit to the account</dt>
+  <dt>- POST ("/api/v1/wallet/{fromWalletId}/account/{fromAccountId}/transfer/wallet/{toWalletId}/account/{toAccountId}/amount/{amount}") - Transfer money from one account to another</dt>
+  <dt>- GET ("/api/v1/wallet/{walletId}/account/{accountId}/balance") - Get an account balance</dt>
+  <dt>- GET ("/api/v1/wallet/{walletId}/account/{accountId}/lastNTransactions/{n}") - Get last n transactions from the account</dt>
 </dl>
 
 ### Built With
